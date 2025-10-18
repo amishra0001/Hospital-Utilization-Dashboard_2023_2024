@@ -1,92 +1,98 @@
-Hospital Utilization Dashboard (Power BI)
+# 🏥 **Hospital Utilization Dashboard (Power BI)**
 
-Overview
+---
 
-This Power BI project analyzes hospital utilization data from 2023–2024, focusing on patient activity, admissions, emergency room visits, and key operational metrics.
-The dashboard provides a clear, interactive view of healthcare performance, helping analysts and hospital leaders identify trends, inefficiencies, and improvement opportunities.
+## 📘 **Overview**
+This Power BI project analyzes **hospital utilization data (2023–2024)**, focusing on **patient activity, admissions, ER visits**, and **key operational metrics**.  
+The dashboard provides an interactive view of healthcare performance, helping analysts and hospital leaders identify **trends, inefficiencies, and opportunities for improvement**.
 
+---
 
-What This Dashboard Shows
+## 📊 **What This Dashboard Shows**
 
-The dashboard allows users to explore:
+- 🧍‍♂️ Patient load and admissions over time  
+- 🏨 Hospitals with the highest **bed occupancy rates**  
+- ⏱️ Trends in **average length of stay (LOS)**  
+- 🔁 **Readmission rate** patterns by hospital and payer  
+- 💰 Breakdown of **payer mix** (Medicare, Medicaid, Private, Self-Pay)
 
-Patient load and admissions over time
+---
 
-Hospitals with the highest bed occupancy rates
+## 📈 **Key Metrics**
 
-Trends in average length of stay (LOS)
+| **Metric** | **Description** |
+|-------------|----------------|
+| **Total Patients** | Monthly patient volume |
+| **ER Visits** | Number of emergency room visits |
+| **Admissions** | Inpatient admissions |
+| **Discharges** | Patients discharged |
+| **Average LOS** | Average days per patient stay |
+| **Bed Occupancy Rate** | % of hospital beds occupied |
+| **Readmission Rate** | % of patients readmitted |
+| **Payer Type** | Type of insurance coverage |
 
-Readmission rate patterns across hospitals and payer types
+---
 
-The breakdown of payer mix (Medicare, Medicaid, Private, Self-Pay)
+## 🧾 **About the Data**
 
-Key Metrics
+- **Filename:** `hospital_utilization_2023_2024.csv`  
+- **Size:** ~50,000 records  
+- **Period Covered:** Jan 2023 – Dec 2024  
+- **Granularity:** Monthly per hospital  
+- **Columns:**  
+  `Hospital_ID`, `Hospital_Name`, `State`, `Month`, `Year`,  
+  `Total_Patients`, `ER_Visits`, `Inpatient_Admissions`, `Discharges`,  
+  `Average_Length_of_Stay`, `Bed_Occupancy_Rate`, `Readmission_Rate`, `Payer_Type`
 
-Metric	Description
-Total Patients	Monthly patient volume
-ER Visits	Number of emergency room visits
-Admissions	Inpatient admissions
-Discharges	Patients discharged
-Average Length of Stay (LOS)	Average days per patient stay
-Bed Occupancy Rate	% of hospital beds occupied
-Readmission Rate	% of patients readmitted
-Payer Type	Type of insurance coverage
+---
 
-About the Data
+## 📊 **Dashboard Highlights**
 
-Filename: hospital_utilization_2023_2024.csv
+### 🧭 **Page 1 – Executive Summary**
+- KPI Cards: Total Patients, ER Visits, Admissions, Avg LOS, Bed Occupancy, Readmission Rate  
+- Monthly patient trends *(line chart)*  
+- Top 10 hospitals by patient count *(bar chart)*  
+- State-level overview *(map visualization)*  
 
-Size: ~50,000 records
+### ⚙️ **Page 2 – Operational Insights**
+- LOS vs Occupancy comparison  
+- Readmission correlation *(scatter chart)*  
+- Conditional formatting → 🔴 *Red for high LOS (>6)*  
 
-Period Covered: Jan 2023 – Dec 2024
+### 💳 **Page 3 – Payer Mix**
+- Donut chart showing payer breakdown  
+- Admissions & readmissions by payer type  
 
-Granularity: Monthly data per hospital
+### 🏥 **Page 4 – Hospital Comparison**
+- Slicers: *Year, State, Hospital Name*  
+- Monthly trend for selected hospital  
+- LOS, Occupancy, and Readmission details  
 
-Columns: Hospital_ID, Hospital_Name, State, Month, Year, Total_Patients, ER_Visits, Inpatient_Admissions, Discharges, Average_Length_of_Stay, Bed_Occupancy_Rate, Readmission_Rate, Payer_Type
+---
 
-Dashboard Highlights
+## 💡 **Insights You Can Gain**
 
-Page 1 – Executive Summary
-KPI Cards: Total Patients, ER Visits, Admissions, Avg LOS, Bed Occupancy, Readmission Rate
-Monthly patient trends (line chart)
-Top 10 hospitals by patient count (bar chart)
-State-level overview (map visualization)
+✅ Hospitals consistently operating at **high occupancy**  
+✅ How **average LOS impacts readmissions**  
+✅ **Seasonal patterns** in patient volume  
+✅ Which **payer types drive the highest admissions**
 
-Page 2 – Operational Insights
-LOS vs Occupancy comparison
-Readmission Rate correlation scatter chart
-Conditional formatting (red for high LOS)
+---
 
-Page 3 – Payer Mix
-Donut chart showing payer breakdown
-Admissions and readmissions by payer type
+## 🧰 **Tools & Technologies**
 
-Page 4 – Hospital Comparison
-Slicers: Year, State, Hospital Name
-Monthly trend for a selected hospital
-LOS, Occupancy, and Readmission details
+- 🟦 **Power BI Desktop** – Data modeling & visualization  
+- 🟩 **Power Query** – ETL & transformation  
+- 📊 **Microsoft Excel / CSV** – Data storage  
+- ⚙️ **DAX** – KPI & calculated measures  
+- 🧾 **GitHub** – Version control & documentation  
 
-What Insights You Can Gain?
-Which hospitals consistently operate at high occupancy
-How average length of stay impacts readmissions
-Seasonal patterns in patient volume
+---
 
-Which payer types drive the highest admissions
+## 🧮 **Sample DAX Measures**
 
-Tools & Technologies
-Power BI Desktop
- – data modeling & visualization
-
-Microsoft Excel / CSV
- – data storage
-
-Power Query
- – ETL & data transformation
-
-DAX
- – KPI and calculated measures
-
- -- Total Patients
+```DAX
+-- Total Patients
 Total Patients = SUM(Hospital_Utilization[Total_Patients])
 
 -- Total ER Visits
@@ -107,15 +113,15 @@ Avg Bed Occupancy = AVERAGE(Hospital_Utilization[Bed_Occupancy_Rate])
 -- Average Readmission Rate
 Avg Readmission Rate = AVERAGE(Hospital_Utilization[Readmission_Rate])
 
--- Patients by Payer Type (for charts)
+-- Patients by Payer Type
 Patients by Payer = SUM(Hospital_Utilization[Total_Patients])
+🎨 Conditional Formatting Rules have been applied to visualize clearly. 
 
-GitHub
- – version control and project documentation
+🧩 Dynamic Filters (Slicers)
+Year
 
-Conditional color rules applied.
+State
 
+Hospital Name
 
-LOS > 6 → 🔴 Needs Attention
-
-Slicers for dynamic filtering (Year, State, Payer Type)
+Payer Type
